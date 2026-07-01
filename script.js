@@ -74,20 +74,20 @@ const difficultyTemplates = {
     ]
 };
 spinBtn.addEventListener('click', function() {
-     const currentarray = difficultyTemplates[CurrentDifficulty];
+     const currentArray = difficultyTemplates[currentDifficulty] || difficultyTemplates['easy'];
     blockTape.style.transition = 'none';
     blockTape.style.transform = 'translateX(0)';
     blockTape.innerHTML = '';
     challengeTape.style.transition = 'none';
     challengeTape.style.transform = 'translateX(0)';
+    let winningBlock = '';
+    let winningChallenge = '';
     challengeTape.innerHTML = '';
     const targetIndex = 25;
-    let winningBlock = '';
-     let winningChallenge = '';
      document.getElementById('result-box').innerHTML = '';
    for (let i = 0; i < 30; i++) {
         const randomBlock = blocks[Math.floor(Math.random() * blocks.length)];
-        const randomChallenge = currentarray[Math.floor(Math.random() * currentarray.length)];
+        const randomChallenge = currentArray[Math.floor(Math.random() * currentArray.length)];
         if (i === targetIndex) {winningBlock = randomBlock; winningChallenge = randomChallenge;}
         const item = document.createElement('div');
         item.classList.add('roulette-item');
@@ -116,7 +116,7 @@ document.querySelectorAll('.diff-btn').forEach(function(button) {
             btn.classList.remove('active');
         });
         button.classList.add('active');
-        CurrentDifficulty = button.getAttribute('data-difficulty');
-        console.log('Текущая сложность: ' + CurrentDifficulty);
+        currentDifficulty = button.getAttribute('data-difficulty');
+        console.log('Текущая сложность: ' + currentDifficulty);
     });
 });

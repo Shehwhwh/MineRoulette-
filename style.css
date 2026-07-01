@@ -96,3 +96,38 @@ body{
     text-align: center;
     border-radius: 4px;
 }
+@media (max-width: 768px) {
+    .roulettes-container {
+        flex-direction: column; 
+        width: 95% !important;  
+        padding: 15px !important;
+        gap: 15px !important;
+    }
+
+    .roulette-wrapper {
+        max-width: 100% !important; 
+        height: 100px !important;   
+    }
+
+    .roulette-item {
+        width: 100px !important;    
+        font-size: 12px !important; 
+    }
+
+    #spin-btn {
+        width: 100% !important;     
+        height: 60px !important;
+        font-size: 20px !important;
+    }
+
+    .difficulty-container {
+        flex-wrap: wrap;           
+        justify-content: center !important;
+        gap: 5px !important;
+    }
+
+    .diff-btn {
+        font-size: 12px !important;
+        padding: 6px 10px !important;
+    }
+}
